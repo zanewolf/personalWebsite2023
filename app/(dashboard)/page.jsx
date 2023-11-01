@@ -3,8 +3,6 @@ import Link from "next/link";
 import styles from '../styles/home.module.css'
 import {fetchMedia} from "@/app/utils/ContentfulAPI";
 import ProjectHexCard from "@/app/components/cards/ProjectHexCard";
-// import ScrollToTop from "react-scroll-to-top";
-import ScrollToTop from "@/app/components/ScrollToTopButton";
 import Image from "next/image";
 import hex2 from "@/public/images/Untitled.svg";
 import React from "react";
