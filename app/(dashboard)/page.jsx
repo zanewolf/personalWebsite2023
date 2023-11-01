@@ -7,7 +7,6 @@ import Image from "next/image";
 import hex2 from "@/public/images/Untitled.svg";
 import React from "react";
 import hex from '../../public/images/Untitled.svg';
-// import SelectedProjectCard from "@/app/components/cards/SelectedProjectCard";
 
 
 export default async function Home({content}) {
@@ -22,7 +21,6 @@ export default async function Home({content}) {
 
   return (
       <section className={styles.homePage}>
-        <ScrollToTop/>
         <div className={styles.landingSection}>
           <div className={styles.auxHex}>
             <Link href={'https://www.youtube.com/watch?v=thOifuHs6eY'}>
