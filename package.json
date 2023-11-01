@@ -37,6 +37,7 @@
     "yet-another-react-lightbox": "^3.14.0"
   },
   "devDependencies": {
+    "@vercel/node": "^3.0.7",
     "autoprefixer": "^10",
     "postcss": "^8",
     "tailwindcss": "^3"
