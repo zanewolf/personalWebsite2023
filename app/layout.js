@@ -1,6 +1,6 @@
 import './styles/globals.css'
 import { Inter } from 'next/font/google'
-import { League_Spartan} from "next/font/google";
+import { League_Spartan,Libre_Baskerville} from "next/font/google";
 import Footer from "@/app/components/footer/page";
 import NavBar from "@/app/components/navbar/page";
 import {Analytics} from "@vercel/analytics/react";

@@ -91,33 +91,3 @@ import Select from '@mui/material/Select';
 			</section>
 	)
 }
-
- // <div className="text-3xl lg:text-4xl  flex flex-row justify-center items-center m-auto mt-16 lowercase">
-	//  <div className={'projectForm pr-4 pt-2'}>
-	// 	 {/*<div>*/}
-	// 	 <FormControl sx={{m: 1, minWidth: 80}} className={` border-0 m-0 `}>
-	// 		 {/*<InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>*/}
-	// 		 <Select
-	// 				 labelId="demo-simple-select-autowidth-label"
-	// 				 id="demo-simple-select-autowidth"
-	// 				 value={'default'}
-	// 				 // onChange={handleSelect}
-	// 				 autoWidth
-	// 				 // label="Project"
-	// 				 className={` !text-3xl lg:!text-4xl !font-bold hover:scale-105 `}
-	// 				 // styles={{color: ``}}
-	// 				 // 		sx={{
-	// 				 // 			color: selectedColor,
-	// 				 // 		}}
-	// 		 >
-	// 			 {projectCategories.map((cat, i) => {
-	// 				 // console.log(cat)
-	// 				 return <MenuItem key={i} value={cat.name}
-	// 													className={`border-bottom-2 border-white `}>{cat.name}</MenuItem>
-	// 			 })}
-	// 		 </Select>
-	// 	 </FormControl>
-	// 	 {/*</div>*/}
-	//  </div>
-	//  <span className={'font-extralight'}>projects</span>
- // </div>

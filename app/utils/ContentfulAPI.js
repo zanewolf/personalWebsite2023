@@ -23,3 +23,12 @@ export async function fetchProject(slug){
 
 }
 
+export async function fetchBlog(slug){
+    const items = await client.getEntries({
+        content_type: 'blogs',
+        'fields.slug':slug})
+
+    return items.items[0]
+
+}
+
