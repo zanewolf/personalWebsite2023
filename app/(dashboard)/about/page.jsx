@@ -8,26 +8,44 @@ import hex2 from '../../../public/images/Untitled.svg'
 // import {Parallax} from "react-scroll-parallax";
 import Link from "next/link";
 import styles from '../../styles/aboutMe.module.css'
+import timeline from '../../../public/images/Zaney_Timeline_Final.jpg'
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 
 
-
+const imageSizes = [16, 32, 48, 64, 96, 128, 256, 384];
+const deviceSizes = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
 
 About.title= "About Me"
 About.keywords = "about"
 
-// export async function getStaticProps() {
-//
-// 	let content = fetchMedia('cvData')
-// 			.then((projectsFetched) => projectsFetched)
-// 			.catch((error) => console.log(error))
-//
-// 	return content
-// }
 
 export default function About(){
-	// const [cvToggle,setCvToggle]=React.useState(true)
+	const [open, setOpen] = React.useState(false);
+	console.log(open)
 
+	function nextImageUrl(src, size) {
+		return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
+	}
 
+	const images  =[timeline]
+
+	const slides = images.map(({ src, width, height }) => ({
+		width,
+		height,
+		src: nextImageUrl(src, width),
+		srcSet: imageSizes
+				.concat(...deviceSizes)
+				.filter((size) => size <= width)
+				.map((size) => ({
+					src: nextImageUrl(src, size),
+					width: size,
+					height: Math.round((height / width) * size),
+				})),
+	}));
+
+	console.log(slides)
 
 
 	return (
@@ -73,6 +91,21 @@ export default function About(){
 						{/*</div>*/}
 
 					</div>
+				</div>
+				<div className={'h-auto min-h-[100vh] w-[95vw] m-auto mb-10 justify-center text-center relative hover:cursor-zoom-in'}>
+					<Image
+							src={timeline}
+							fill
+							alt={'Hexagon svg with easter egg link to FAQ page'}
+							className={'object-cover'}
+							onClick={()=>setOpen(true)}
+					/>
+					<Lightbox
+							open={open}
+							close={() => setOpen(false)}
+							slides={slides}
+							plugins={[Zoom]}
+					/>
 				</div>
 			</div>
 	);
