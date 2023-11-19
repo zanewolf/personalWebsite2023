@@ -8,26 +8,44 @@ import hex2 from '../../../public/images/Untitled.svg'
 // import {Parallax} from "react-scroll-parallax";
 import Link from "next/link";
 import styles from '../../styles/aboutMe.module.css'
+import timeline from '../../../public/images/Zaney_timeline_final_11.7.jpg'
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 
 
-
+const imageSizes = [16, 32, 48, 64, 96, 128, 256, 384];
+const deviceSizes = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
 
 About.title= "About Me"
 About.keywords = "about"
 
-// export async function getStaticProps() {
-//
-// 	let content = fetchMedia('cvData')
-// 			.then((projectsFetched) => projectsFetched)
-// 			.catch((error) => console.log(error))
-//
-// 	return content
-// }
 
 export default function About(){
-	// const [cvToggle,setCvToggle]=React.useState(true)
+	const [open, setOpen] = React.useState(false);
+	console.log(open)
 
+	function nextImageUrl(src, size) {
+		return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
+	}
 
+	const images  =[timeline]
+
+	const slides = images.map(({ src, width, height }) => ({
+		width,
+		height,
+		src: nextImageUrl(src, width),
+		srcSet: imageSizes
+				.concat(...deviceSizes)
+				.filter((size) => size <= width)
+				.map((size) => ({
+					src: nextImageUrl(src, size),
+					width: size,
+					height: Math.round((height / width) * size),
+				})),
+	}));
+
+	console.log(slides)
 
 
 	return (
@@ -59,7 +77,7 @@ export default function About(){
 								/>
 								{/*<polygon fill="lime" stroke="blue" stroke-width="10"*/}
 								{/*				 points="850,75  958,137.5 958,262.5*/}
-                {/*    850,325 742,262.6 742,137.5" />*/}
+								{/*    850,325 742,262.6 742,137.5" />*/}
 							</Link>
 						</div>
 					</div>
@@ -68,11 +86,26 @@ export default function About(){
 							I am passionate about <span className={'font-bold text-secondary-500'}>sharing what I love and learn</span> with others, whether it's <span className={'font-bold text-secondary-400'}>teaching </span> science classes, <span className={'font-bold text-secondary-200'}>designing </span> data visualizations, <span className={'font-bold text-secondary-300'}>coding </span> useful websites and writing educational content, or even taking my friends rock climbing and throwing them off the cliff (they're tied to ropes, I promise).
 						</div>
 						{/*<div className={styles.docLinks}>*/}
-							<div>I am currently open for work or collaborations.</div>
-							<div>Check out my <Link href={'/Wolf_Resume_9.2023.pdf'} className={'underline decoration-primary-200'}>Resume</Link>. </div>
+						<div>I am currently open for work or collaborations.</div>
+						<div>Check out my <Link href={'/Wolf_Resume_9.2023.pdf'} className={'underline decoration-primary-200'}>Resume</Link>. </div>
 						{/*</div>*/}
 
 					</div>
+				</div>
+				<div className={'h-auto w-auto min-h-[100vh] max-w-[95vw] m-auto mb-10 justify-center text-center relative hover:cursor-zoom-in'}>
+					<Image
+							src={timeline}
+							fill
+							alt={'Hexagon svg with easter egg link to FAQ page'}
+							className={'object-fit'}
+							onClick={()=>setOpen(true)}
+					/>
+					<Lightbox
+							open={open}
+							close={() => setOpen(false)}
+							slides={slides}
+							plugins={[Zoom]}
+					/>
 				</div>
 			</div>
 	);
