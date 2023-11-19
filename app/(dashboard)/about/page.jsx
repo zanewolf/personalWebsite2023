@@ -79,21 +79,22 @@ export default function About(){
 					</div>
 					<div className={styles.aboutContent}>
 						<div className={styles.aboutText}>
-							I am passionate about <span className={'font-bold text-secondary-500'}>sharing what I love and learn</span> with others, whether it's <span className={'font-bold text-secondary-400'}>teaching </span> science classes, <span className={'font-bold text-secondary-200'}>designing </span> data visualizations, <span className={'font-bold text-secondary-300'}>coding </span> useful websites and writing educational content, or even taking my friends rock climbing and throwing them off the cliff (they're tied to ropes, I promise).
+							I am passionate about <span className={'font-bold text-secondary-500'}>sharing what I love and learn</span> with others, whether it's <span className={'font-bold text-secondary-400'}>teaching </span> classes and workshops, <span className={'font-bold text-secondary-200'}>designing </span> data visualizations, <span className={'font-bold text-secondary-300'}> or coding </span> useful websites and creating content.
 						</div>
 						{/*<div className={styles.docLinks}>*/}
 						<div>I am currently open for work or collaborations.</div>
-						<div>Check out my <Link href={'/Wolf_Resume_11.23.pdf'} className={'underline decoration-primary-200'}>Resume</Link>. </div>
+						<div>Check out my <Link href={'/Wolf_Resume_11.23.pdf'} className={'underline decoration-primary-200'}>Resume</Link>, or timeline below (click to zoom).
+						</div>
 						{/*</div>*/}
 
 					</div>
 				</div>
-				<div className={'h-auto w-auto min-h-[20vh] max-w-[95vw] m-auto mb-10 justify-center text-center relative hover:cursor-zoom-in'}>
+				<div className={'w-[95vw] min-h-[20vh] md:min-h-[90vh] m-auto mb-10 relative hover:cursor-zoom-in'}>
 					<Image
 							src={timeline}
 							fill
 							alt={'Hexagon svg with easter egg link to FAQ page'}
-							className={'object-fill'}
+							className={'object-contain'}
 							onClick={()=>setOpen(true)}
 					/>
 					<Lightbox
