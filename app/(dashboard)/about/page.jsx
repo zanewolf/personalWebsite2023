@@ -64,6 +64,7 @@ export default function About(){
 							<Image
 									className={'aboutImage object-cover'}
 									src={profile}
+									sizes="50vw"
 									alt={'profile picture of Zane Wolf'}
 									priority={true}
 									loading={'eager'}
@@ -87,17 +88,17 @@ export default function About(){
 						</div>
 						{/*<div className={styles.docLinks}>*/}
 						<div>I am currently open for work or collaborations.</div>
-						<div>Check out my <Link href={'/Wolf_Resume_9.2023.pdf'} className={'underline decoration-primary-200'}>Resume</Link>. </div>
+						<div>Check out my <Link href={'/Wolf_Resume_11.23.pdf'} className={'underline decoration-primary-200'}>Resume</Link>. </div>
 						{/*</div>*/}
 
 					</div>
 				</div>
-				<div className={'h-auto w-auto min-h-[100vh] max-w-[95vw] m-auto mb-10 justify-center text-center relative hover:cursor-zoom-in'}>
+				<div className={'h-auto w-auto min-h-[20vh] max-w-[95vw] m-auto mb-10 justify-center text-center relative hover:cursor-zoom-in'}>
 					<Image
 							src={timeline}
 							fill
 							alt={'Hexagon svg with easter egg link to FAQ page'}
-							className={'object-fit'}
+							className={'object-fill'}
 							onClick={()=>setOpen(true)}
 					/>
 					<Lightbox
