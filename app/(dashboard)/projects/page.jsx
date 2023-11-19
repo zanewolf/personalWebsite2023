@@ -5,8 +5,9 @@ import Loading from '../Loading'
 
 
 export default async function Projects() {
-	const projects = await fetchMedia({content_type: 'projects',order:'-sys.createdAt'})
+	const projects = await fetchMedia({content_type: 'projects',order:'-fields.postDate'})
 
+console.log(projects)
 	return (
 			<>
 				<Suspense fallback={<Loading />}>
