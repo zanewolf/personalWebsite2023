@@ -60,7 +60,6 @@ export default function About(){
 							<Image
 									className={'aboutImage object-cover'}
 									src={profile}
-									sizes="50vw"
 									alt={'profile picture of Zane Wolf'}
 									priority={true}
 									loading={'eager'}
