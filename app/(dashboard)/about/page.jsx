@@ -6,14 +6,14 @@ import profile from '../../../public/images/Profile_Hex.png';
 import hex2 from '../../../public/images/Untitled.svg';
 import Link from "next/link";
 import styles from '../../styles/aboutMe.module.css'
-// import timeline from '../../../public/images/Zaney_timeline_final_11.7.jpg'
-// import Lightbox from "yet-another-react-lightbox";
-// import Zoom from "yet-another-react-lightbox/plugins/zoom";
-// import "yet-another-react-lightbox/styles.css";
+import timeline from '../../../public/images/Zaney_timeline_final_11.7.jpg'
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 
 
-// const imageSizes = [16, 32, 48, 64, 96, 128, 256, 384];
-// const deviceSizes = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+const imageSizes = [16, 32, 48, 64, 96, 128, 256, 384];
+const deviceSizes = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
 
 About.title= "About Me"
 About.keywords = "about"
@@ -22,26 +22,26 @@ About.keywords = "about"
 export default function About(){
 	const [open, setOpen] = useState(false);
 
-	//
-	// function nextImageUrl(src, size) {
-	// 	return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
-	// }
-	//
-	// const images  =[timeline]
-	//
-	// const slides = images.map(({ src, width, height }) => ({
-	// 	width,
-	// 	height,
-	// 	src: nextImageUrl(src, width),
-	// 	srcSet: imageSizes
-	// 			.concat(...deviceSizes)
-	// 			.filter((size) => size <= width)
-	// 			.map((size) => ({
-	// 				src: nextImageUrl(src, size),
-	// 				width: size,
-	// 				height: Math.round((height / width) * size),
-	// 			})),
-	// }));
+
+	function nextImageUrl(src, size) {
+		return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
+	}
+
+	const images  =[timeline]
+
+	const slides = images.map(({ src, width, height }) => ({
+		width,
+		height,
+		src: nextImageUrl(src, width),
+		srcSet: imageSizes
+				.concat(...deviceSizes)
+				.filter((size) => size <= width)
+				.map((size) => ({
+					src: nextImageUrl(src, size),
+					width: size,
+					height: Math.round((height / width) * size),
+				})),
+	}));
 
 
 	return (
@@ -97,12 +97,12 @@ export default function About(){
 							className={'object-fill'}
 							onClick={()=>setOpen(true)}
 					/>
-					{/*<Lightbox*/}
-					{/*		open={open}*/}
-					{/*		close={() => setOpen(false)}*/}
-					{/*		slides={slides}*/}
-					{/*		plugins={[Zoom]}*/}
-					{/*/>*/}
+					<Lightbox
+							open={open}
+							close={() => setOpen(false)}
+							slides={slides}
+							plugins={[Zoom]}
+					/>
 				</div>
 			</div>
 	);
