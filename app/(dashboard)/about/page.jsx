@@ -1,18 +1,15 @@
 "use client"
 import React from 'react';
+import {useState} from "react";
 import Image from "next/image";
-// import profile from '../public/Arcadia_Shots-5-2.jpg'
-import profile from '../../../public/images/Profile_Hex.png'
-import hex from '../../../public/images/hex_1.png'
-import hex2 from '../../../public/images/Untitled.svg'
-// import {Parallax} from "react-scroll-parallax";
+import profile from '../../../public/images/Profile_Hex.png';
+import hex2 from '../../../public/images/Untitled.svg';
 import Link from "next/link";
-import styles from '../../styles/aboutMe.module.css'
-import timeline from '../../../public/images/Zaney_Timeline_Final.jpg'
+import styles from '../../styles/aboutMe.module.css';
+import timeline from '../../../public/images/Zaney_Timeline_Final.jpg';
+import "yet-another-react-lightbox";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/styles.css";
-
 
 const imageSizes = [16, 32, 48, 64, 96, 128, 256, 384];
 const deviceSizes = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
@@ -22,8 +19,7 @@ About.keywords = "about"
 
 
 export default function About(){
-	const [open, setOpen] = React.useState(false);
-	console.log(open)
+	const [open, setOpen] = useState(false);
 
 	function nextImageUrl(src, size) {
 		return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
@@ -45,11 +41,9 @@ export default function About(){
 				})),
 	}));
 
-	console.log(slides)
-
 
 	return (
-			<div className={styles.aboutPage}>
+			<div>
 				<div className={styles.aboutDiv}>
 					<div className={styles.aboutHexContainer}>
 						<div className={styles.auxHex}>
@@ -109,4 +103,4 @@ export default function About(){
 				</div>
 			</div>
 	);
-};
+}

@@ -76,7 +76,7 @@ export default function BlogBody({content,accentColor}) {
                             style={{ height: "auto",width: "auto", maxWidth:"100%", margin: "auto",justifyContent:'center' }}
                             // loading={'lazy'}
                         />
-                        {description && <div className={'text-xs md:text-lg p-2 bg-neutral-800 text-gray-200 font-light italic'}>
+                        {description && <div className={'w-auto text-xs md:text-sm p-2 bg-zinc-900/60 rounded text-gray-200 font-light italic'}>
                             {description}
                         </div>}
                     </div>

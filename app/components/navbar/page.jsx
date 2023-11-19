@@ -11,37 +11,39 @@ function NavLink({to, active, name}) {
 		</Link>
 }
 
-function MobileNav({open, setOpen}) {
-	return (
-			<div className={`mobileMenu ${open ? "-translate-x-0" : "-translate-x-full"} `}>
-				<div className="mobileMenuHeader">
-				<div className="logo">
-					<Link href={'/'}>
-						<span className={'font-extralight '}>zane</span><span className={'font-extrabold'}>wolf</span>
-					</Link>
-				</div>
-				</div>
-					<div className="flex flex-col justify-center mt-12">
-						{navItems.map((navLink,i)=>{
-							return (
-									<Link key={i} href={navLink.path} className="text-4xl font-medium my-4 justify-center"  onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-											{navLink.name}
-									</Link>
-							)})}
-					</div>
-			</div>
-	)
-}
+// function MobileNav({open, setOpen}) {
+// 	return (
+// 			<div className={`mobileMenu ${open ? "-translate-x-0" : "-translate-x-full"} `}>
+// 				<div className="mobileMenuHeader">
+// 				<div className="logo">
+// 					<Link href={'/'}>
+// 						<span className={'font-extralight '}>zane</span><span className={'font-extrabold'}>wolf</span>
+// 					</Link>
+// 				</div>
+// 				</div>
+// 					<div className="flex flex-col justify-center mt-12">
+// 						{navItems.map((navLink,i)=>{
+// 							return (
+// 									<Link key={i} href={navLink.path} className="text-4xl font-medium my-4 justify-center"  onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+// 											{navLink.name}
+// 									</Link>
+// 							)})}
+// 					</div>
+// 			</div>
+// 	)
+// }
 
 export default function Navbar() {
 	const [navActive, setNavActive] = useState(null);
 	const [activeIdx, setActiveIdx] = useState(0);
 	const [isOpen, setOpen]= useState(false)
 
+	console.log(navActive, activeIdx)
+
 	return (
 			<header>
 				<nav className={`nav`}>
-					<Link href={"/"}>
+					<Link href={"/"} onClick={()=>setActiveIdx(0)}>
 							<h1 className="logo">
 								<span className={'font-extralight '}>zane</span><span className={'font-extrabold'}>wolf</span>
 							</h1>

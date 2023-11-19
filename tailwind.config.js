@@ -1,3 +1,4 @@
+npm run dev
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

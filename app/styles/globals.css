@@ -197,10 +197,10 @@ nav {
   text-2xl
 }
 
-/*.nav__link.active{*/
-/*  @apply*/
-/*  font-bold*/
-/*}*/
+.nav__link.active{
+  @apply
+  font-bold
+}
 
 .nav__link:hover{
   font-weight: bold;

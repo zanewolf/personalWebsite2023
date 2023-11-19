@@ -13,11 +13,19 @@
     m-auto
     items-center
     text-3xl lg:text-4xl
-    flex flex-row justify-center
+    flex flex-row flex-wrap justify-center
     mt-16
     lowercase
     pr-4 pt-2
     text-3xl text-primary
+    mb-6
+    md:mb-0
+}
+
+.selectText{
+    /*@apply*/
+    /*text-xl*/
+    /*md:text-xl*/
 }
 
 .galleryCards{
