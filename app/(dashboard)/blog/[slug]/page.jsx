@@ -18,7 +18,6 @@ export async function generateMetadata({ params }) {
 export default async function BlogPage({params}) {
 
 	const blog = await fetchBlog(params.slug)
-	console.log(blog)
 	const accentColor='#c93d0a'
 
 	return (

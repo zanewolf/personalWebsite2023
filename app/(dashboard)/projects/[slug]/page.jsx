@@ -45,18 +45,30 @@ export default async function ProjectPage({ params }) {
 				<div className={styles.projectContent}>
 					<div className={styles.projectSideMenus}>
 						<div className={styles.projectInfo}>
-								<div className={styles.sideInfoHeader}>Links</div>
-								<div className={styles.projectLinks}>
-									<Link href={project.fields.link} className={`text-${accentColor} underline`}>
-										{project.fields.name}
-									</Link>
-									<Link href={project.fields.githubLink? project.fields.githubLink : "www.google.com"} className={`underline text-${accentColor}`}>
-										Github Repo
-									</Link>
-								</div>
+							{(project.fields.link || project.fields.githubLink) &&
+									<>
+										<div className={styles.sideInfoHeader}>Links</div>
+										<div className={styles.projectLinks}>
+											{project.fields.link &&
+												<Link href={project.fields.link} className={`text-${accentColor} underline`}>
+													{project.fields.name}
+												</Link>
+											}
+											{project.fields.githubLink &&
+												<Link href={project.fields.githubLink} className={`underline text-${accentColor}`}>
+												Github Repo
+												</Link>
+											}
+										</div>
+									</>
+							}
+
+
+
+
 								<div className={styles.sideInfoHeader}>Client</div>
-								<div >{project.fields.client}</div>
-								<div  className={styles.sideInfoHeader}>Tools</div>
+								<div>{project.fields.client}</div>
+								<div className={styles.sideInfoHeader}>Tools</div>
 							  <ul>
 									{project.fields.tools.map((tool,i)=>{
 										return (<li key={i}>
@@ -65,7 +77,7 @@ export default async function ProjectPage({ params }) {
 									})
 									}
 								</ul>
-							{project.fields.dataLinks &&
+								{project.fields.dataLinks &&
 									<>
 										<div className={styles.sideInfoHeader}>Data</div>
 										{project.fields.dataLinks.dataLinks.map((link,i)=> {
@@ -75,8 +87,8 @@ export default async function ProjectPage({ params }) {
 													</Link>
 											)
 										})}
-								</>
-							}
+									</>
+								}
 						</div>
 						<div className={styles.projectTOC}>
 							<TableOfContents post={project.fields.description} accentColor={accentColor}/>

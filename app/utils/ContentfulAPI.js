@@ -9,7 +9,11 @@ export async function fetchMedia(query){
 
     const res = await client.getEntries(query)
 
-    return res.items
+    // return res.items
+    return {
+        props: res.items,
+        revalidate:60
+    }
 
 }
 

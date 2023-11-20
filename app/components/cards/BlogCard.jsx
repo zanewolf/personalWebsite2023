@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function BlogCard({blog}) {
+	console.log(blog)
 	let blurb = blog.fields.body.content[1].content[0].value.slice(0,200)
 	return (
 			<Link href={'/blog/'+blog.fields.slug}>

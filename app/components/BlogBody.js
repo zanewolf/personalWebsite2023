@@ -57,7 +57,7 @@ export default function BlogBody({content,accentColor}) {
                 return <div className={`text-lg md:text-2xl font-bold mt-3 mb-3 text-${accentColor} brightness-50`}>{children}</div>
             },
             [BLOCKS.UL_LIST]: (node, children) => {
-                return <ul className={'list-disc ml-2 mr-2'}>{children}</ul>
+                return <ul className={'list-disc ml-8 mr-2'}>{children}</ul>
             },
             [BLOCKS.OL_LIST]: (node, children) => {
                 return <ol>{children}</ol>
@@ -85,14 +85,39 @@ export default function BlogBody({content,accentColor}) {
 
             },
             [INLINES.HYPERLINK]: (node) => {
-                const { uri } = node.data;
-                const { value } = node.content[0];
-                return (
-                    <Link href={uri} className={`text-${accentColor} underline`}>
-                            {value}
-                    </Link>
-                );
+                if (node.data.uri.indexOf('youtube.com') !== -1) {
+                    return (
+                        <div className={'w-80 h-auto'}>
+                            <iframe
+                                id="ytplayer"
+                                src={node.data.uri}
+                                type="text/html"
+                                width="640"
+                                height="360"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
+                            />
+                        </div>
+                    );
+                } else {
+                    return (
+                        <Link
+                            href={node.data.uri}
+                            className={`text-${accentColor} underline`}
+                        >
+                            {node.content[0].value}
+                        </Link>
+                    );
+                }
             },
+            // [INLINES.HYPERLINK]: (node) => {
+            //     const { uri } = node.data;
+            //     const { value } = node.content[0];
+            //     return (
+            //         <Link href={uri} className={`text-${accentColor} underline`}>
+            //                 {value}
+            //         </Link>
+            //     );
+            // },
         },
     };
     return (

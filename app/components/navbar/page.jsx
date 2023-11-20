@@ -37,9 +37,6 @@ export default function Navbar() {
 	const [navActive, setNavActive] = useState(null);
 	const [activeIdx, setActiveIdx] = useState(0);
 	const [isOpen, setOpen]= useState(false)
-
-	console.log(navActive, activeIdx)
-
 	return (
 			<header>
 				<nav className={`nav`}>

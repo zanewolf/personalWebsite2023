@@ -9,7 +9,9 @@ import hex from '../../public/images/Untitled.svg';
 
 
 export default async function Home({content}) {
-  const projects = await fetchMedia({content_type:'projects','fields.selected':true})
+  const media = await fetchMedia({content_type:'projects','fields.selected':true})
+  const projects = media.props
+
 
   const keywords = [
     {keyword: 'data designer', color: 'text-secondary-200',link:'/projects', query:'Data Visualization'},

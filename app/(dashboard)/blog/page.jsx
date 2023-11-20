@@ -5,7 +5,8 @@ import BlogGallery from "@/app/(dashboard)/blog/BlogGallery";
 
 
 export default async function Blog() {
-	const blogs = await fetchMedia({content_type: 'blogs',order:'-sys.createdAt'})
+	const media = await fetchMedia({content_type: 'blogs',order:'-sys.createdAt'})
+	const blogs = media.props
 
 	return (
 			<>
