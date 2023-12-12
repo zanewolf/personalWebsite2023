@@ -4,6 +4,7 @@ import { League_Spartan,Libre_Baskerville} from "next/font/google";
 import Footer from "@/app/components/footer/page";
 import NavBar from "@/app/components/navbar/page";
 import {Analytics} from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 export const dynamic = 'force-dynamic'
